@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "ip2location-nodejs": "^9.6.3"
+  }
+}

@@ -22,13 +22,22 @@ This is a simple Express.js server that uses the IP2Location database to resolve
 project-root/
 │
 ├── public/
-│   └── index.html  # to do
+|   ├── index.js
+|   ├── styles.css
+│   └── index.html
 │
 ├── db/
 │   ├── IP2LOCATION-LITE-DB1.BIN
 │   └── IP2LOCATION-LITE-ASN.BIN
 │
-└── server.js  # Main Express server file
+├── src/
+|   └── server.js  # Main Express server file
+|
+├── package-lock.json
+├── package.json
+├── .gitignore
+├── README.md
+└── start_server.bat
 ```
 
 

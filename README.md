@@ -1,12 +1,16 @@
-# IP2Location API Server
+# IP2Location API Server with Web Interface
 
-This is a simple Express.js server that uses the IP2Location database to resolve an IP address into country or ASN (ISP) information. It is intended for local use and can be queried from tools like Excel via HTTP GET requests.
+This is a simple Express.js server that uses the IP2Location binary database to resolve IP addresses into country and ASN (ISP) information. It includes a lightweight web interface for uploading CSV files with IP addresses and downloading the results after processing.
 
 ## Features
 
-- Returns country name or ASN info based on IP address.
-- Lightweight and fast using binary IP2Location databases.
-- Compatible with Excel's `WEBSERVICE()` function for data lookups.
+- 🔍 **IP Lookup** – Resolves IP addresses into country names and ASN (ISP) details using IP2Location.
+- 📁 **CSV Upload** – Upload a CSV file with IP addresses via the browser.
+- 📥 **CSV Download** – Download the processed results in CSV format.
+- ⚡ **Fast & Lightweight** – Uses efficient binary databases for quick lookups.
+- ✅ **User-Friendly Web Interface** – Simple, clean interface for non-technical users.
+- 📊 **Excel Compatible** – Can also be queried via Excel's `WEBSERVICE()` function.
+
 
 ## Prerequisites
 
@@ -37,7 +41,7 @@ project-root/
 ├── package.json
 ├── .gitignore
 ├── README.md
-└── start_server.bat
+└── start_server.bat #batch file to run 
 ```
 
 

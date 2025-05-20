@@ -76,6 +76,18 @@ input[type="file"]::file-selector-button {
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+.btn-primary{
+  background-color: #3b82f6; /* Blue - Secondary action (Upload) */
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
 input[type="file"]::file-selector-button:hover {
   background-color: #2563eb; /* Hover - Darker Blue */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -164,4 +176,17 @@ table tr:last-child td:first-child {
 
 table tr:last-child td:last-child {
   border-bottom-right-radius: 10px;
+}
+textarea{
+  width: 100%;
+  min-height: 80px;
+}
+
+.textarea-container{
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+.textarea-container>button{
+  align-self: flex-end;
 }

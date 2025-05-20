@@ -18,6 +18,14 @@
       <input type="file" id="csvFile" accept=".csv">
       <p>Upload your CSV file with the column header "ip"</p>
     </div>
+    <div
+      class="textarea-container"
+    >
+      <textarea id="ip_textarea" placeholder="type your IP/IPs here">
+
+      </textarea>
+      <button class="btn-primary" onclick="handleTextarea()">Resolve IP</button>
+    </div>
 
     <div id="output" class="output"></div>
 

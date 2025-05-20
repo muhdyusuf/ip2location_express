@@ -117,4 +117,42 @@ function renderResults(data) {
   outputDiv.innerHTML = html
 }
 
+async function handleTextarea(){
+  const textAreaElement=document.getElementById("ip_textarea")
+  let text=textAreaElement.value.trim()
+  console.log(text.split(/[ ,\n]+/))
+  console.log(text.split(/[ ,\n]+/).some(ip=>!isValidIPv4(ip)))
+  const ipArray=text.split(/[ ,\n]+/).filter(ip=>isValidIPv4(ip))
+  console.log(ipArray)
+  try {
+    const response = await fetch("/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ips:ipArray }),
+    })
 
+    if (!response.ok) {
+      const error = await response.json()
+      throw new Error(error.message || "Server error")
+    }
+
+    const _results = await response.json()
+    renderResults(_results)
+    results = _results
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+downloadCSV(results, "ip_results.csv")
+})
+
+  } catch (err) {
+    outputDiv.innerHTML = `<p style="color:red;">Error: ${err.message}</p>`
+  }
+  
+
+}
+
+function isValidIPv4(ip) {
+  const regex = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/;
+  return regex.test(ip)
+}

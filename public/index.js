@@ -67,6 +67,7 @@ document
     outputDiv.innerHTML = `<p>Processing ${ips.length} IPs...</p>`
 
     try {
+      const start = performance.now(); // Start timing
       const response = await fetch("/api", {
         method: "POST",
         headers: {
@@ -74,7 +75,9 @@ document
         },
         body: JSON.stringify({ ips }),
       })
+      const end = performance.now(); // End timing
 
+      console.log(`Fetch duration: ${((end - start)/1000).toFixed(2)} s`);
       if (!response.ok) {
         const error = await response.json()
         throw new Error(error.message || "Server error")
@@ -125,6 +128,7 @@ async function handleTextarea(){
   const ipArray=text.split(/[ ,\n]+/).filter(ip=>isValidIPv4(ip))
   console.log(ipArray)
   try {
+    const start = performance.now(); // Start timing
     const response = await fetch("/api", {
       method: "POST",
       headers: {
@@ -133,6 +137,10 @@ async function handleTextarea(){
       body: JSON.stringify({ ips:ipArray }),
     })
 
+    const end = performance.now(); // End timing
+
+console.log(`Fetch duration: ${(end - start).toFixed(2)} ms`);
+
     if (!response.ok) {
       const error = await response.json()
       throw new Error(error.message || "Server error")
@@ -140,9 +148,9 @@ async function handleTextarea(){
 
     const _results = await response.json()
     renderResults(_results)
-    results = _results
+ 
     document.getElementById("downloadBtn").addEventListener("click", () => {
-downloadCSV(results, "ip_results.csv")
+downloadCSV(_results, "ip_results.csv")
 })
 
   } catch (err) {

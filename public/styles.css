@@ -186,7 +186,50 @@ textarea{
   display: flex;
   flex-direction: column;
   gap: .2rem;
+  display:none;
 }
 .textarea-container>button{
   align-self: flex-end;
+}
+
+.tabs {
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: sans-serif;
+}
+
+/* Hide radio buttons */
+.tabs input[type="radio"] {
+  display: none;
+}
+
+/* Tab labels */
+.tabs label {
+  padding: .5rem;
+  cursor: pointer;
+  background: #eee;
+  margin-right: 5px;
+  border-radius: 5px 5px 0 0;
+  display: inline-block;
+}
+
+/* Active tab label */
+.tabs input[type="radio"]:checked + label {
+  background: #fff;
+  border-bottom: 2px solid white;
+  font-weight: bold;
+}
+
+/* Tab content */
+.tab-content {
+  display: none;
+  padding: 15px;
+
+}
+
+/* Show content of selected tab */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3 {
+  display: block;
 }

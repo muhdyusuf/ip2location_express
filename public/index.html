@@ -7,29 +7,43 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="header">
+    <h1>IP Resolver</h1>
+  </div>
+<div class="tab-container tabs">
+  <input type="radio" name="tabs" id="tab1" checked>
+    <label for="tab1">Upload</label>
 
-  <div class="container">
-    <div class="header">
-      <h1>IP Resolver</h1>
-      <p>Upload a CSV file with IP addresses and resolve the countries and ISPs.</p>
-    </div>
+    <input type="radio" name="tabs" id="tab2">
+    <label for="tab2">Text Input</label>
 
-    <div class="upload-section">
+    <div class="upload-section tab-content" id="content1">
+      
+
       <input type="file" id="csvFile" accept=".csv">
       <p>Upload your CSV file with the column header "ip"</p>
     </div>
+    
     <div
-      class="textarea-container"
+      class="tab-content container" id="content2"
     >
       <textarea id="ip_textarea" placeholder="type your IP/IPs here">
-
+    
       </textarea>
       <button class="btn-primary" onclick="handleTextarea()">Resolve IP</button>
     </div>
 
-    <div id="output" class="output"></div>
+</div>
+<div id="output" class="output">
 
-  </div>
+</div>
+ 
+   
+
+
+  
+
+
   <script src="index.js"></script>
 
 </body>
